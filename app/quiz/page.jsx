@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChalkboardTeacher, faBrain, faArrowAltCircleRight, faArrowRightArrowLeft, faArrowRight, faBoltLightning } from '@fortawesome/free-solid-svg-icons';
 import { Itim } from 'next/font/google';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 const itim = Itim({
   weight: '400',
   subsets: ['latin', 'thai', 'vietnamese'],
@@ -14,6 +15,38 @@ const Page = () => {
     const [questions,setQuestions]=useState()
     const [difficulty,setDifficulty]=useState()
     const [topic,setTopic]=useState()
+    const [isCreatingQuiz,setIsCreatingQuiz]=useState(false)
+
+    const router=useRouter()
+
+    const startQuiz=async ()=>{
+        const data={
+            questions:questions,
+            topic: topic,
+            difficulty:difficulty
+        }
+        setIsCreatingQuiz(true)
+    try{
+
+        const req=await fetch('/api/getQuiz',{
+            method:'POST',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.parse(data)
+
+        }) 
+
+        const res= await req.json()
+        if (res.success){
+
+        }
+    } catch(err){
+
+    }
+
+        
+    }
   return (
     <div className="grid p-6 bg-gradient-to-r from-purple-700 to-blue-400 lg:to-blue-600">
       <div className="flex w-full justify-self-start items-center my-6 justify-center">

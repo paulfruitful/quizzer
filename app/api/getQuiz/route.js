@@ -91,7 +91,12 @@ export async function POST(req) {
       questions,
     });
     const generatedQuiz = await run(message);
-    req.cookies.set("quiz",generatedQuiz)
+    const jsonMatch = generatedQuiz.match(/{[\s\S]*}/);
+  
+    if (jsonMatch) {
+      const quizJson = JSON.parse(jsonMatch[0]); 
+      req.cookies.set("quiz", quizJson);
+    }
 
     return NextResponse.json({message: "Quiz Generated" , success:true, quiz:req.cookies.get('quiz')},{status:200});
   } catch (error) {
