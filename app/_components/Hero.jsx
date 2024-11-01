@@ -12,7 +12,7 @@ const Hero = () => {
       <FontAwesomeIcon className='text-white w-10 justify-self-center self-center h-10 ' style={{animation:'brain 2s ease-in-out forwards'}}  icon={faBrain} />
       </div>
       <span className="text-center p-2 text-md lg:text-2xl lg:bg-transparent text-black bg-white my-3  lg:text-white">Master Any Topic, Any Time – With Personalized Quizzes Just for You!</span>
-      <Link className='self-center justify-self-center items-center p-3 hover:bg-white hover:text-black transition-all duration-800  rounded-lg shadow-md bg-black text-white flex hover:shadow-blue-300 text-xl active:scale-110' href='/'>Take A Quiz <FontAwesomeIcon className='w-8 h-8 px-2 animate-[electric-flicker_1s_infinite]' icon={faArrowRight}> </FontAwesomeIcon></Link>
+      <Link  className='self-center justify-self-center items-center p-3 hover:bg-white hover:text-black transition-all duration-800  rounded-lg shadow-md bg-black text-white flex hover:shadow-blue-300 text-xl active:scale-110' href='/quiz'>Take A Quiz <FontAwesomeIcon className='w-8 h-8 px-2 animate-[electric-flicker_1s_infinite]' icon={faArrowRight}> </FontAwesomeIcon></Link>
       <style jsx>
         {`
           @keyframes electric-flicker {
